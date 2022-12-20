@@ -32,6 +32,7 @@ import PageSingVenda from './pages/pageSingVenda/PageSingVenda';
 import PageSingVendaEd from './pages/PageSingleVendaEd/PageSingleVendaEd';
 import PageSingDoacao from './pages/PageSingleDoacao/PageSingleDoacao';
 import SinglePageDoacaoEd from './pages/SinglePageDoacaoEd/SiglePageDoacaoEd';
+import PageSingleAluguel from './pages/PageSingleAluguel/PageSingleAluguel';
 
 function App() {
 
@@ -67,6 +68,7 @@ function App() {
           <Route path="/registrar" element={<Registrar />} exact />
           <Route path="/monitor" element={<Monitor />} exact />
           <Route path="/monitor-doacao/:id" element={<PageSingDoacao />} exact />
+          <Route path="/monitor-aluguel/:id" element={<PageSingleAluguel />} exact />
           <Route path="/monitor-doacao-ed/:id" element={<SinglePageDoacaoEd />} exact />
           <Route path="/monitor-venda/:id" element={<PageSingVenda />} exact />
           <Route path="/monitor-venda-ed/:id" element={<PageSingVendaEd />} exact />

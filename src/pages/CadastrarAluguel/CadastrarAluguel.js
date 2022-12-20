@@ -2,13 +2,12 @@ import React from 'react'
 import Menu from '../../components/Menu/Menu'
 import './CadastrarAluguel.css'
 import {useState} from 'react'
-// import {useContext} from 'react'
-// import {Context} from '../../Context/Context'
+import {useContext} from 'react'
+import {Context} from '../../Context/Context'
 import upload from '../../services/upload'
 import api from '../../services/api'
 import { Link } from 'react-router-dom'
 const URLImg = "https://festupload.s3.amazonaws.com/";
-var user = ""
 
 //upload img
 async function postImage({image, description}) {
@@ -23,7 +22,7 @@ async function postImage({image, description}) {
 export default function CadastrarAluguel() {
 
     //useStates
-    // const { user, isFetching } = useContext(Context)
+    const { user, isFetching } = useContext(Context)
     const [file1, setFile1] = useState(null)
     const [file2, setFile2] = useState(null)
     const [file3, setFile3] = useState(null)
@@ -61,6 +60,9 @@ export default function CadastrarAluguel() {
           cozinha,
           banheiro,
           area,
+          estado: "analise",
+          checkUpdate: false,
+          updateToken: null
 
         };
         if(file1){
@@ -264,8 +266,7 @@ export default function CadastrarAluguel() {
                         <textarea className='forNewDesc' placeholder='Descreve a casa em poucas palavras....' maxLength='200' onChange={(e)=> setDesc(e.target.value)}></textarea>
                     </div>
                     <div className='precoType'>
-                        {/* <button type='submit' disabled={isFetching} onClick={setImg} className='CadastrarcasaEmAluguel'>Cadastrar Aluguel</button> */}
-                        <button type='submit' onClick={setImg} className='CadastrarcasaEmAluguel'>Cadastrar Aluguel</button>
+                        <button type='submit' disabled={isFetching} onClick={setImg} className='CadastrarcasaEmAluguel'>Cadastrar Aluguel</button>
                     </div>
                 </div>
             </form>
